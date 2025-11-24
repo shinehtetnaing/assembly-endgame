@@ -5,6 +5,8 @@
   --color-body-text: #D9D9D9;
   --color-header-text: #F9F4DA;
   --color-header-paragraph: #8E8E8E;
+  --color-green-bg: #10A95B;
+  --color-status-text: #F9F4DA;
 }
 
 @layer base {
