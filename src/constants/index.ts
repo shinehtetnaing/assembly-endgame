@@ -45,3 +45,5 @@ export const Languages = [
     color: "#F9F4DA",
   },
 ];
+
+export const Alphabet = "abcdefghijklmnopqrstuvwxyz";
