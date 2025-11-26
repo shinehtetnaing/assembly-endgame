@@ -27,7 +27,7 @@ function App() {
 
       <Status />
 
-      <LanguageChips />
+      <LanguageChips wrongGuessCount={wrongGuessCount} />
 
       <section className="flex items-center justify-center">
         {currentWord.split("").map((letter, index) => (
