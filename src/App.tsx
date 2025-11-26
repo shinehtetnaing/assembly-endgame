@@ -9,13 +9,17 @@ function App() {
   const [currentWord, setCurrentWord] = useState<string>("react");
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
 
+  const wrongGuessCount = guessedLetters.filter(
+    (letter) => !currentWord.includes(letter),
+  ).length;
+
   const addGuessedLetter = (letter: string) => {
     if (letter && !guessedLetters.includes(letter)) {
       setGuessedLetters((prevLetters) => [...prevLetters, letter]);
     }
   };
 
-  console.log(guessedLetters);
+  console.log(wrongGuessCount);
 
   return (
     <main className="max-w-[450px] space-y-8">
@@ -31,7 +35,8 @@ function App() {
             key={index}
             className="bg-word-bg ml-3 flex size-16 items-center justify-center border-b-2 text-3xl capitalize"
           >
-            {letter}
+            {/* {letter} */}
+            {guessedLetters.includes(letter) ? letter : ""}
           </span>
         ))}
       </section>
