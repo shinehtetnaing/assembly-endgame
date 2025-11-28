@@ -8,6 +8,7 @@
   --color-green-bg: #10A95B;
   --color-status-text: #F9F4DA;
   --color-word-bg: #323232;
+  --color-red-bg: #BA2A2A;
 }
 
 @layer base {

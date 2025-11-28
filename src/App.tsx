@@ -28,7 +28,11 @@ function App() {
     <main className="max-w-[450px] space-y-8">
       <Header />
 
-      <Status />
+      <Status
+        isGameOver={isGameOver}
+        isGameWon={isGameWon}
+        isGameLost={isGameLost}
+      />
 
       <LanguageChips wrongGuessCount={wrongGuessCount} />
 
