@@ -1,9 +1,9 @@
+import { clsx } from "clsx";
 import { useState } from "react";
 import Header from "./components/Header";
 import LanguageChips from "./components/LanguageChips";
 import Status from "./components/Status";
-import { Alphabet } from "./constants";
-import { clsx } from "clsx";
+import { Alphabet, Languages } from "./constants";
 
 function App() {
   const [currentWord, setCurrentWord] = useState<string>("react");
@@ -12,14 +12,17 @@ function App() {
   const wrongGuessCount = guessedLetters.filter(
     (letter) => !currentWord.includes(letter),
   ).length;
+  const isGameWon = currentWord
+    .split("")
+    .every((letter) => guessedLetters.includes(letter));
+  const isGameLost = wrongGuessCount >= Languages.length - 1;
+  const isGameOver = isGameWon || isGameLost;
 
   const addGuessedLetter = (letter: string) => {
     if (letter && !guessedLetters.includes(letter)) {
       setGuessedLetters((prevLetters) => [...prevLetters, letter]);
     }
   };
-
-  console.log(wrongGuessCount);
 
   return (
     <main className="max-w-[450px] space-y-8">
@@ -63,9 +66,11 @@ function App() {
         })}
       </section>
 
-      <button className="mb-8 w-full cursor-pointer rounded bg-blue-600 py-3 text-white hover:bg-blue-500">
-        New Game
-      </button>
+      {isGameOver && (
+        <button className="mb-8 w-full cursor-pointer rounded bg-blue-600 py-3 text-white hover:bg-blue-500">
+          New Game
+        </button>
+      )}
     </main>
   );
 }
