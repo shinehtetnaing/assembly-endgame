@@ -69,6 +69,7 @@ function App() {
                 isGuessed && "cursor-not-allowed! opacity-50",
               )}
               onClick={() => addGuessedLetter(letter)}
+              disabled={isGameOver}
             >
               {letter}
             </button>
