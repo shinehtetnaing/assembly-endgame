@@ -47,6 +47,8 @@ const Status = ({
 
   return (
     <section
+      aria-live="polite"
+      role="status"
       className={clsx(
         "text-status-text flex min-h-24 flex-col items-center justify-center gap-5 rounded py-3",
         isGameWon && "bg-green-bg",
