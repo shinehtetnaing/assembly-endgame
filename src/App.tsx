@@ -17,6 +17,10 @@ function App() {
     .every((letter) => guessedLetters.includes(letter));
   const isGameLost = wrongGuessCount >= Languages.length - 1;
   const isGameOver = isGameWon || isGameLost;
+  const lastGuessedLetter = guessedLetters[guessedLetters.length - 1];
+  const isLastGuessIncorrect =
+    lastGuessedLetter && !currentWord.includes(lastGuessedLetter);
+  console.log(isLastGuessIncorrect);
 
   const addGuessedLetter = (letter: string) => {
     if (letter && !guessedLetters.includes(letter)) {
@@ -32,6 +36,8 @@ function App() {
         isGameOver={isGameOver}
         isGameWon={isGameWon}
         isGameLost={isGameLost}
+        isLastGuessIncorrect={isLastGuessIncorrect}
+        wrongGuessCount={wrongGuessCount}
       />
 
       <LanguageChips wrongGuessCount={wrongGuessCount} />
