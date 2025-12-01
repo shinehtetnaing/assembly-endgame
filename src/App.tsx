@@ -4,9 +4,10 @@ import Header from "./components/Header";
 import LanguageChips from "./components/LanguageChips";
 import Status from "./components/Status";
 import { Alphabet, Languages } from "./constants";
+import { getRandomWord } from "./utils";
 
 function App() {
-  const [currentWord, setCurrentWord] = useState<string>("react");
+  const [currentWord, setCurrentWord] = useState<string>(() => getRandomWord());
   const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
 
   const wrongGuessCount = guessedLetters.filter(
