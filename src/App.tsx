@@ -5,6 +5,7 @@ import LanguageChips from "./components/LanguageChips";
 import Status from "./components/Status";
 import { Alphabet, Languages } from "./constants";
 import { getRandomWord } from "./utils";
+import Confetti from "react-confetti";
 
 function App() {
   const [currentWord, setCurrentWord] = useState<string>(() => getRandomWord());
@@ -36,6 +37,8 @@ function App() {
 
   return (
     <main className="max-w-[450px] space-y-8">
+      {isGameWon && <Confetti recycle={false} numberOfPieces={1000} />}
+
       <Header />
 
       <Status

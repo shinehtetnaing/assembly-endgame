@@ -1,0 +1,3 @@
+1. Display the "remaining guesses" count
+2. Render some kind of "anti-confetti" when the game is lost, or another animation of some kind
+3. Set a timer on the game that causes a loss if the time runs out
