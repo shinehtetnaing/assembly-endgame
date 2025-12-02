@@ -29,6 +29,11 @@ function App() {
     }
   };
 
+  const startNewGame = () => {
+    setCurrentWord(getRandomWord());
+    setGuessedLetters([]);
+  };
+
   return (
     <main className="max-w-[450px] space-y-8">
       <Header />
@@ -100,7 +105,10 @@ function App() {
       </section>
 
       {isGameOver && (
-        <button className="mb-8 w-full cursor-pointer rounded bg-blue-600 py-3 text-white hover:bg-blue-500">
+        <button
+          className="mb-8 w-full cursor-pointer rounded bg-blue-600 py-3 text-white hover:bg-blue-500"
+          onClick={startNewGame}
+        >
           New Game
         </button>
       )}
